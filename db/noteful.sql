@@ -1,6 +1,8 @@
--- psql -U dev -f ./db/noteful.sql -d noteful-app
+-- psql -U dev -d noteful-app -a -f /c/Users/Arsalon/Documents/Thinkful/Workshop/Week4/3Wednesday/Sayed-noteful-app-v2/db/noteful.sql
 -- SELECT CURRENT_DATE;
 
+DROP TABLE IF EXISTS notes_tags;
+DROP TABLE IF EXISTS tags;
 DROP TABLE IF EXISTS notes;
 DROP TABLE IF EXISTS folders;
 
@@ -11,12 +13,6 @@ CREATE TABLE folders (
 
 ALTER SEQUENCE folders_id_seq RESTART WITH 100;
 
-INSERT INTO folders (name) VALUES
-  ('Archive'),
-  ('Drafts'),
-  ('Personal'),
-  ('Work');
-
 CREATE TABLE notes (
   id serial PRIMARY KEY,
   title text NOT NULL,
@@ -26,6 +22,22 @@ CREATE TABLE notes (
 );
 
 ALTER SEQUENCE notes_id_seq RESTART WITH 1000;
+
+CREATE TABLE tags (
+  id serial PRIMARY KEY,
+  name text NOT NULL
+);
+
+CREATE TABLE notes_tags (
+  note_id INTEGER NOT NULL REFERENCES notes ON DELETE CASCADE,
+  tag_id INTEGER NOT NULL REFERENCES tags ON DELETE CASCADE
+);
+
+INSERT INTO folders (name) VALUES
+  ('Archive'),
+  ('Drafts'),
+  ('Personal'),
+  ('Work');
 
 INSERT INTO notes (title, content, folder_id) VALUES
   (
@@ -56,7 +68,7 @@ INSERT INTO notes (title, content, folder_id) VALUES
   (
     '9 reasons you can blame the recession on cats',
     'Loria deserunt mollit anim id est laborum.',
-    100
+    103
   ),
   (
     '10 ways marketers are making you addicted to cats',
@@ -74,3 +86,20 @@ INSERT INTO notes (title, content, folder_id) VALUES
     100
   )
 ;
+
+INSERT INTO tags (name) VALUES 
+  ('tag1'),
+  ('tag2'),
+  ('tag3'),
+  ('tag4');
+
+INSERT INTO notes_tags (note_id, tag_id) VALUES 
+  (1000, 4),
+  (1001, 1),
+  (1002, 3),
+  (1003, 1),
+  (1004, 2),
+  (1005, 2),
+  (1006, 4),
+  (1007, 1),
+  (1008, 3);

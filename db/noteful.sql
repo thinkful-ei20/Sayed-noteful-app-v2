@@ -110,3 +110,4 @@ INSERT INTO notes_tags (note_id, tag_id) VALUES
   ('1007', '1'), ('1007', '2'),
   ('1008', '3'),
   ('1009', '2');
+  --test comment

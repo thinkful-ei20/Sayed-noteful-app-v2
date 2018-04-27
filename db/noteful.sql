@@ -85,6 +85,11 @@ INSERT INTO notes (title, content, folder_id) VALUES
     'Why you should forget everything you learned about cats',
     'Posuere saucibus purus in massa tempor nec feugiat nisl.',
     100
+  ),
+  (
+    'final title',
+    'content contet',
+    101
   )
 ;
 
@@ -103,4 +108,5 @@ INSERT INTO notes_tags (note_id, tag_id) VALUES
   ('1005', '2'), ('1005', '1'),
   ('1006', '4'),
   ('1007', '1'), ('1007', '2'),
-  ('1008', '3');
+  ('1008', '3'),
+  ('1009', '2');

@@ -1,4 +1,5 @@
--- psql -U dev -d noteful-app -a -f /c/Users/Arsalon/Documents/Thinkful/Workshop/Week4/3Wednesday/Sayed-noteful-app-v2/db/noteful.sql
+-- psql -U dev -d noteful-app -a -f /c/Users/Arsalon/Documents/Thinkful/Workshop/Week4/4Thursday/Sayed-noteful-app-v2/db/noteful.sql
+-- \i /c/Users/Arsalon/Documents/Thinkful/Workshop/Week4/3Wednesday/Sayed-noteful-app-v2/db/noteful.sql
 -- SELECT CURRENT_DATE;
 
 DROP TABLE IF EXISTS notes_tags;
@@ -94,12 +95,12 @@ INSERT INTO tags (name) VALUES
   ('tag4');
 
 INSERT INTO notes_tags (note_id, tag_id) VALUES 
-  (1000, 4),
-  (1001, 1),
-  (1002, 3),
-  (1003, 1),
-  (1004, 2),
-  (1005, 2),
-  (1006, 4),
-  (1007, 1),
-  (1008, 3);
+  ('1000', '4'),
+  ('1001', '1'),
+  ('1002', '3'),
+  ('1003', '1'), ('1003', '3'),
+  ('1004', '2'),
+  ('1005', '2'), ('1005', '1'),
+  ('1006', '4'),
+  ('1007', '1'), ('1007', '2'),
+  ('1008', '3');
